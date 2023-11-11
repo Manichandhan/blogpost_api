@@ -1,4 +1,4 @@
-const CustomError=require('../Utils/CustomError')
+const {CustomError}=require('../Utils/CustomError')
 
 const errorHandler=(err,req,res,next)=>{
  
@@ -10,4 +10,4 @@ const errorHandler=(err,req,res,next)=>{
     return res.status(500).send('something went wrong'+err) 
 }
 
-module.exports=errorHandler
+module.exports={errorHandler}

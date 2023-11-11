@@ -5,4 +5,4 @@ class CustomError extends Error{
         this.errCode=errCode
     }
 }
-module.exports=CustomError
+module.exports={CustomError}
