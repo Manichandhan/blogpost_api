@@ -9,6 +9,9 @@ const Port = process.env.PORT || 6000;
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+//cookie parser
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 //import auth routes
 const authRoutes = require("./routes/authroute");
 app.use("/auth", authRoutes);

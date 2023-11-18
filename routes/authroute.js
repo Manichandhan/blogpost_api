@@ -1,23 +1,24 @@
 // authRoutes.js
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const { tryCatch } = require("../Utils/tryCatch");
+const { generateOtp } = require("../Middlewares/emailValidation");
 
+
+require("dotenv").config();
+const {
+  userRegister,
+  login,
+  logout,
+} = require("../Controller/UserRegisteration");
+const jwt = require("jsonwebtoken");
 // Registration route (simplified example)
-router.post('/register', (req, res,next) => {
-  // Handle user registration here
-  res.status(200).send('User registered successfully');
-});
+router.post("/register", generateOtp, tryCatch(userRegister));
 
 // Login route
-router.post('/login', (req, res,next) => {
-  // Handle user login here
-  res.status(200).send('User logged in successfully');
-});
+router.post("/login", tryCatch(login));
 
 // Logout route
-router.delete('/logout', (req, res,next) => {
-  // Handle user logout here
-  res.status(200).send('User logged out');
-});
+router.delete("/logout", tryCatch(logout));
 
 module.exports = router;
