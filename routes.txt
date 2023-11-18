@@ -1,0 +1,23 @@
+LIKE AND COMMENT ROUTES
+/api/v1/like
+GET /post/:id/getLikes
+POST /post/:id/like
+DELETE /post/:id/unlike
+_______________________
+/api/v1/comment
+GET /post/:id/getAllcomments
+POST /post/:id/comment
+DELETE /post/:id/deleteComment
+_______________________
+BLOG POST ROUTES
+/api/v1
+GET /blogposts/getAll
+GET /blogposts/:id
+POST /blogposts/createPost
+DELETE /blogposts/:id
+_______________________
+Auth ROUTES
+/auth
+POST /register
+POST /login
+DELETE /logout
