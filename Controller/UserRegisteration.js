@@ -161,6 +161,8 @@ const login = async (req, res, next) => {
       }
       next(new CustomError(404, "user Not found"));
     }
+  }else{
+    res.status(400).send('please enter email or username')
   }
 };
 

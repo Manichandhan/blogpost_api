@@ -16,7 +16,7 @@ if(token){
 }
 if(refreshtoken){
     const decode=jwt.decode(refreshtoken,process.env.RefreshSecret)
-    
+    console.log(decode.exp);
     if(decode.exp<currtime){
         tokenexp.refreshtoken=true
     }else{

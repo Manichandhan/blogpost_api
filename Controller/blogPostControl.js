@@ -12,9 +12,11 @@ exports.getAllPosts = async (req, res) => {
 };
 
 exports.CreatePost = async (req, res) => {
+  console.log(req.body.username);
   if (req.body.username && req.files) {
     const postdoc = new postModel({
       username: req.body.username,
+      description:req.body.description || undefined,
       photos: req.files.map((file) => {
         return file.path;
       }),

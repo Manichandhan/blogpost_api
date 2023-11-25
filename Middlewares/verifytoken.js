@@ -8,11 +8,11 @@ exports.verifytoken=async (req, res, next) => {
       req.cookies.refreshtoken
     );
     if (expire.token && expire.refreshtoken) {
-      console.log(expire.token, expire.refreshtoken);
       return res.status(400).send("please login again");
     }
-    console.log(expire);
+    
     if (expire.refreshtoken) {
+      console.log('fuck');
       return res.status(400).send("please login again");
     }
     const decode = jwt.verify(
@@ -26,7 +26,8 @@ exports.verifytoken=async (req, res, next) => {
         username: decode.username,
         exp: Math.floor(Date.now() / 1000) + 10 * 60,
       };
-      res.cookie("token", jwt.sign(payload, process.env.TokenSecret), {
+      const token=jwt.sign(payload, process.env.TokenSecret)
+      res.cookie('token',token, {
         maxAge: 10 * 60 * 1000,
       });
     }

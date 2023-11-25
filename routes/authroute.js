@@ -11,7 +11,7 @@ const {
   login,
   logout,
 } = require("../Controller/UserRegisteration");
-const jwt = require("jsonwebtoken");
+
 // Registration route (simplified example)
 router.post("/register", generateOtp, tryCatch(userRegister));
 
